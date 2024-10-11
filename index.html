@@ -3,222 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Shubham Soni - Resume">
-    <meta name="keywords" content="Shubham Soni, Resume, Software Engineer, PowerShell, Hybrid Infrastructure">
-    <meta name="author" content="Shubham Soni">
-    <title>Shubham Soni | Professional Resume</title>
-    <link rel="stylesheet" href="assets/style.css">
-    <script defer src="assets/script.js"></script>
-    <!-- Prism.js for Syntax Highlighting -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-powershell.min.js"></script>
-
+    <title>Shubham Soni's Resume</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header>
         <h1>Shubham Soni</h1>
-        <p>Software Engineer | Hybrid Infrastructure Specialist</p>
-        <p> shubhamsoni.io1994@gmail.com | +91-9540018311 </p>
-        <button onclick="downloadResume()">Download Resume (PDF)</button>
+        <div class="contact-info">
+            <p>Contacts: +91-9540018311 | Email: <a href="mailto:shubhamsoni.io1994@gmail.com">shubhamsoni.io1994@gmail.com</a></p>
+            <p>Position: Associate Staff Engineer | Hybrid Infrastructure Engineer | Nagarro | Ex HCLits | Ex Infosian | Smart India Hackathon</p>
+        </div>
+        <nav id="navbar">
+            <ul>
+                <li><a href="#experience">Work Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+            </ul>
+        </nav>
     </header>
-    
-    <nav>
-        <ul>
-            <li><a href="#personal-info">Personal Info</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#experience">Work Experience</a></li>
-            <li><a href="#certifications">Certifications</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-        </ul>
-    </nav>
 
-    <section id="experience">
-    <h2>Work Experience</h2>
-
-    <table class="experience-table">
-        <thead>
-            <tr>
-                <th>Company</th>
-                <th>Position</th>
-                <th>Location</th>
-                <th>Duration</th>
-                <th>Technologies</th>
-                <th>Contributions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Nagarro Software Pvt Ltd</td>
-                <td>Associate Staff Engineer</td>
-                <td>Gurgaon</td>
-                <td>Mar '22 – Present</td>
-                <td>PowerShell, SharePoint, vSphere, HP iLO, Workday, Orchestrator, DNS, DHCP, JWT, OAuth 2.0, REST</td>
-                <td>
-                    <ul>
-                        <li>Fast-tracked promotion in 8 months vs. the standard 12 months.</li>
-                        <li>Enhanced security and scalability by upgrading JWT to OAuth 2.0.</li>
-                        <li>Optimized performance by migrating SAS server from on-prem to cloud.</li>
-                        <li>Automated Adobe service deployment for AD users, reducing manual effort.</li>
-                        <li>Integrated SendGrid into Azure automation scripts, replacing SMTP alerts.</li>
-                        <li>Streamlined CMDB updates by automating cross-platform change detection.</li>
-                    </ul>
-                </td>
-            </tr>
-            <tr>
-                <td>HCL Technologies</td>
-                <td>Technology Specialist</td>
-                <td>Noida</td>
-                <td>Jun '21 – Feb '22</td>
-                <td>vSphere, Citrix, Python, Selenium, HP ILO, CA PAM, NetBackup, Dell EMC</td>
-                <td>
-                    <ul>
-                        <li>Introduced and implemented a privileged account management plan.</li>
-                        <li>Assisted in updating and migrating LUNs and data stores to improve performance.</li>
-                    </ul>
-                </td>
-            </tr>
-            <tr>
-                <td>Infosys Pvt Ltd</td>
-                <td>Senior Systems Engineer</td>
-                <td>Hyderabad</td>
-                <td>Jan '19 – May '21</td>
-                <td>vSphere, Horizon, AD, DHCP, DNS, SQL, PowerCLI, ServiceNow, Citrix Xen Apps</td>
-                <td>
-                    <ul>
-                        <li>Developed a solution to verify deployed patches, saving time during maintenance.</li>
-                        <li>Created a script to validate VM state and IP configuration against the CMDB.</li>
-                        <li>Scripted and deployed server monitoring to provide timely alerts.</li>
-                    </ul>
-                </td>
-            </tr>
-            <tr>
-                <td>Cavisson Software Pvt Ltd</td>
-                <td>Project Management</td>
-                <td>Noida</td>
-                <td>Jun '18 – Jan '19</td>
-                <td>Jira, Bugzilla, Agile, Project Management</td>
-                <td>
-                    <ul>
-                        <li>Replaced Bugzilla with Jira for better issue tracking and project management.</li>
-                        <li>Collaborated with the team to reduce backlogs and improve workflow efficiency.</li>
-                    </ul>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</section>
-
-    <section id="code-snippets">
-    <h2>Code Snippets</h2>
-
-    <!-- PowerShell Code Snippet -->
-    <div class="snippet">
-        <h3>PowerShell: Automating Active Directory User Creation</h3>
-        <p>This script automates the creation of AD users, populating all necessary fields, including assigning them to specific groups.</p>
-        <pre><code class="language-powershell">
-# PowerShell script to create Active Directory user
-Import-Module ActiveDirectory
-
-$UserName = "johndoe"
-$Password = ConvertTo-SecureString "Password123!" -AsPlainText -Force
-$OU = "OU=Users,DC=example,DC=com"
-$Groups = @("Group1", "Group2")
-
-New-ADUser -Name $UserName -AccountPassword $Password -Path $OU -Enabled $true `
-    -UserPrincipalName "$UserName@example.com" -GivenName "John" -Surname "Doe" `
-    -DisplayName "John Doe" -EmailAddress "johndoe@example.com"
-
-# Add user to specified groups
-ForEach ($Group in $Groups) {
-    Add-ADGroupMember -Identity $Group -Members $UserName
-}
-        </code></pre>
-    </div>
-
-    <!-- Python Code Snippet -->
-    <div class="snippet">
-        <h3>Python: Sending Automated Alerts via SendGrid</h3>
-        <p>This Python script sends an automated email alert using the SendGrid API, a solution that I integrated into Azure automation scripts to replace SMTP alerts.</p>
-        <pre><code class="language-python">
-import os
-from sendgrid import SendGridAPIClient
-from sendgrid.helpers.mail import Mail
-
-def send_alert_email(recipient, subject, content):
-    message = Mail(
-        from_email='admin@example.com',
-        to_emails=recipient,
-        subject=subject,
-        html_content=f"<strong>{content}</strong>"
-    )
-    try:
-        sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
-        response = sg.send(message)
-        print(f"Email sent to {recipient} with status code {response.status_code}")
-    except Exception as e:
-        print(f"Error sending email: {e}")
-
-# Usage
-send_alert_email('johndoe@example.com', 'Server Alert', 'CPU usage has exceeded the threshold.')
-        </code></pre>
-    </div>
-</section>
-
-    
-<section id="education">
-        <h2>Education</h2>
-        <div class="collapsible">
-            <h3 onclick="toggleSection(this)">Graduation - Uttar Pradesh Technical University (2018)</h3>
-            <div class="content">
-                <p>Degree: B.Tech, First Division</p>
+    <main>
+        <section id="experience">
+            <h2>Work Experience</h2>
+            <div class="experience-table">
+                <div class="experience-row" id="nagarro">
+                    <h3>Nagarro Software Pvt Ltd</h3>
+                    <div class="info">
+                        <p class="position">Associate Staff Engineer</p>
+                        <p class="location">Gurgaon</p>
+                        <p class="duration">Mar '22 – Present</p>
+                        <div class="details">
+                            <p><strong>Technologies:</strong> PowerShell, SharePoint, vSphere, HP iLO, Workday, Orchestrator, DNS, DHCP, JWT, OAuth 2.0, REST</p>
+                            <p><strong>Contributions:</strong></p>
+                            <ul>
+                                <li>Fast-tracked promotion in 8 months vs. 12 months.</li>
+                                <li>Enhanced security and scalability by upgrading JWT to OAuth 2.0.</li>
+                                <li>Optimized performance by migrating SAS server from on-prem to cloud.</li>
+                                <li>Automated Adobe service deployment for AD users.</li>
+                                <li>Integrated SendGrid into Azure automation scripts, replacing SMTP alerts.</li>
+                                <li>Streamlined CMDB updates by automating cross-platform change detection.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="experience-row" id="hcl">
+                    <h3>HCL Technologies</h3>
+                    <div class="info">
+                        <p class="position">Technology Specialist</p>
+                        <p class="location">Noida</p>
+                        <p class="duration">Jun '21 – Feb '22</p>
+                        <div class="details">
+                            <p><strong>Technologies:</strong> vSphere, Citrix, Python, Selenium, HP ILO, CA PAM, NetBackup, Dell EMC</p>
+                            <p><strong>Contributions:</strong></p>
+                            <ul>
+                                <li>Introduced and implemented a privileged account management plan.</li>
+                                <li>Assisted in updating and migrating LUNs and data stores.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="experience-row" id="infosys">
+                    <h3>Infosys Pvt Ltd</h3>
+                    <div class="info">
+                        <p class="position">Senior Systems Engineer</p>
+                        <p class="location">Hyderabad</p>
+                        <p class="duration">Jan '19 – May '21</p>
+                        <div class="details">
+                            <p><strong>Technologies:</strong> vSphere, Horizon, AD, DHCP, DNS, SQL, PowerCLI, ServiceNow, Citrix Xen Apps</p>
+                            <p><strong>Contributions:</strong></p>
+                            <ul>
+                                <li>Developed a solution to verify deployed patches.</li>
+                                <li>Created a script to validate VM state and IP configuration against the CMDB.</li>
+                                <li>Scripted and deployed server monitoring for timely alerts.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="experience-row" id="cavisson">
+                    <h3>Cavisson Software Pvt Ltd</h3>
+                    <div class="info">
+                        <p class="position">Project Management</p>
+                        <p class="location">Noida</p>
+                        <p class="duration">Jun '18 – Jan '19</p>
+                        <div class="details">
+                            <p><strong>Projects Undertaken:</strong></p>
+                            <ul>
+                                <li>Replaced Bugzilla with Jira for better issue tracking.</li>
+                                <li>Collaborated with the team to reduce backlogs.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="collapsible">
-            <h3 onclick="toggleSection(this)">Senior Secondary School - Ramjas (CBSE) (2014)</h3>
-            <div class="content">
-                <p>First Division</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    
-    <section id="certifications">
-        <h2>Certifications</h2>
-        <ul>
-            <li title="DevOps Certification by Nagarro">DevOps</li>
-            <li title="Python Certification by HackerRank">Python</li>
-            <li title="Windows Server Administration by Infosys">Windows Server Administration</li>
-            <!-- Add more certifications -->
-        </ul>
-    </section>
-    
-    <section id="skills">
-        <h2>Skills</h2>
-        <ul>
-            <li>PowerShell</li>
-            <li>Windows Server Administration</li>
-            <li>VMware, Workday Integration</li>
-            <li>Automation</li>
-        </ul>
-    </section>
-    
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="collapsible">
-            <h3 onclick="toggleSection(this)">Network Sniffing and Monitoring (Smart India Hackathon 2017)</h3>
-            <div class="content">
-                <p>Developed a Network Packet Capturing Tool used in national-level competition.</p>
-            </div>
-        </div>
-        <!-- Add more projects if needed -->
-    </section>
+        <section id="education">
+            <h2>Education</h2>
+            <ul>
+                <li>Graduation in Computer Science and Engineering - Uttar Pradesh Technical University, First Division (2018)</li>
+                <li>Senior Secondary School - Ramjas (CBSE), First Division (2014)</li>
+            </ul>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <ul>
+                <li>**Network Sniffing and Monitoring** - Smart India Hackathon 2017 (National Level), Network Packet Capturing Tool.</li>
+                <!-- Add more projects here -->
+            </ul>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <ul>
+                <li>PowerShell</li>
+                <li>Python</li>
+                <li>SQL</li>
+                <!-- Add more skills here -->
+            </ul>
+        </section>
+
+        <section id="certifications">
+            <h2>Certifications</h2>
+            <ul>
+                <li>DevOps (Nagarro)</li>
+                <li>Python (HackerRank)</li>
+                <li>Network Sniffing and Monitoring (IIT Kanpur)</li>
+                <li>Windows Server Administration (Infosys)</li>
+                <li>PowerShell Scripting (Infosys)</li>
+                <li>Cloud Data Science with Azure ML (Udemy)</li>
+            </ul>
+        </section>
+
+        <section id="demonstrations">
+            <h2>Demonstrations</h2>
+            <h3>Python Example</h3>
+            <pre>
+<code>
+def greet(name):
+    return f"Hello, {name}! Welcome to my resume page."
+
+print(greet("Shubham"))
+</code>
+            </pre>
+            <h3>PowerShell Example</h3>
+            <pre>
+<code>
+$services = Get-Service
+$services | Where-Object {$_.Status -eq 'Running'} | Select-Object Name, DisplayName
+</code>
+            </pre>
+        </section>
+    </main>
 
     <footer>
-        <p>© 2024 Shubham Soni. All Rights Reserved.</p>
+        <p>&copy; 2024 Shubham Soni. All rights reserved.</p>
     </footer>
-
 </body>
 </html>
