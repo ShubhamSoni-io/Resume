@@ -1,11 +1,17 @@
-function toggleSection(element) {
-    const content = element.nextElementSibling;
-    content.style.display = content.style.display === "block" ? "none" : "block";
-}
+document.addEventListener("DOMContentLoaded", function() {
+    const navbarLinks = document.querySelectorAll("nav ul li a");
 
-function downloadResume() {
-    const link = document.createElement('a');
-    link.href = 'path_to_your_resume.pdf'; // Add the correct PDF file path here.
-    link.download = 'Shubham_Soni_Resume.pdf';
-    link.click();
-}
+    navbarLinks.forEach(link => {
+        link.addEventListener("click", function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute("href");
+            const targetSection = document.querySelector(targetId);
+            const offset = targetSection.getBoundingClientRect().top + window.scrollY;
+
+            window.scrollTo({
+                top: offset,
+                behavior: "smooth"
+            });
+        });
+    });
+});
