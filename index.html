@@ -9,11 +9,18 @@
     <title>Shubham Soni | Professional Resume</title>
     <link rel="stylesheet" href="assets/style.css">
     <script defer src="assets/script.js"></script>
+    <!-- Prism.js for Syntax Highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-powershell.min.js"></script>
+
 </head>
 <body>
     <header>
         <h1>Shubham Soni</h1>
         <p>Software Engineer | Hybrid Infrastructure Specialist</p>
+        <p> shubhamsoni.io1994@gmail.com | +91-9540018311 </p>
         <button onclick="downloadResume()">Download Resume (PDF)</button>
     </header>
     
@@ -27,16 +34,141 @@
             <li><a href="#projects">Projects</a></li>
         </ul>
     </nav>
+
+    <section id="experience">
+    <h2>Work Experience</h2>
+
+    <table class="experience-table">
+        <thead>
+            <tr>
+                <th>Company</th>
+                <th>Position</th>
+                <th>Location</th>
+                <th>Duration</th>
+                <th>Technologies</th>
+                <th>Contributions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Nagarro Software Pvt Ltd</td>
+                <td>Associate Staff Engineer</td>
+                <td>Gurgaon</td>
+                <td>Mar '22 – Present</td>
+                <td>PowerShell, SharePoint, vSphere, HP iLO, Workday, Orchestrator, DNS, DHCP, JWT, OAuth 2.0, REST</td>
+                <td>
+                    <ul>
+                        <li>Fast-tracked promotion in 8 months vs. the standard 12 months.</li>
+                        <li>Enhanced security and scalability by upgrading JWT to OAuth 2.0.</li>
+                        <li>Optimized performance by migrating SAS server from on-prem to cloud.</li>
+                        <li>Automated Adobe service deployment for AD users, reducing manual effort.</li>
+                        <li>Integrated SendGrid into Azure automation scripts, replacing SMTP alerts.</li>
+                        <li>Streamlined CMDB updates by automating cross-platform change detection.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>HCL Technologies</td>
+                <td>Technology Specialist</td>
+                <td>Noida</td>
+                <td>Jun '21 – Feb '22</td>
+                <td>vSphere, Citrix, Python, Selenium, HP ILO, CA PAM, NetBackup, Dell EMC</td>
+                <td>
+                    <ul>
+                        <li>Introduced and implemented a privileged account management plan.</li>
+                        <li>Assisted in updating and migrating LUNs and data stores to improve performance.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Infosys Pvt Ltd</td>
+                <td>Senior Systems Engineer</td>
+                <td>Hyderabad</td>
+                <td>Jan '19 – May '21</td>
+                <td>vSphere, Horizon, AD, DHCP, DNS, SQL, PowerCLI, ServiceNow, Citrix Xen Apps</td>
+                <td>
+                    <ul>
+                        <li>Developed a solution to verify deployed patches, saving time during maintenance.</li>
+                        <li>Created a script to validate VM state and IP configuration against the CMDB.</li>
+                        <li>Scripted and deployed server monitoring to provide timely alerts.</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Cavisson Software Pvt Ltd</td>
+                <td>Project Management</td>
+                <td>Noida</td>
+                <td>Jun '18 – Jan '19</td>
+                <td>Jira, Bugzilla, Agile, Project Management</td>
+                <td>
+                    <ul>
+                        <li>Replaced Bugzilla with Jira for better issue tracking and project management.</li>
+                        <li>Collaborated with the team to reduce backlogs and improve workflow efficiency.</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section id="code-snippets">
+    <h2>Code Snippets</h2>
+
+    <!-- PowerShell Code Snippet -->
+    <div class="snippet">
+        <h3>PowerShell: Automating Active Directory User Creation</h3>
+        <p>This script automates the creation of AD users, populating all necessary fields, including assigning them to specific groups.</p>
+        <pre><code class="language-powershell">
+# PowerShell script to create Active Directory user
+Import-Module ActiveDirectory
+
+$UserName = "johndoe"
+$Password = ConvertTo-SecureString "Password123!" -AsPlainText -Force
+$OU = "OU=Users,DC=example,DC=com"
+$Groups = @("Group1", "Group2")
+
+New-ADUser -Name $UserName -AccountPassword $Password -Path $OU -Enabled $true `
+    -UserPrincipalName "$UserName@example.com" -GivenName "John" -Surname "Doe" `
+    -DisplayName "John Doe" -EmailAddress "johndoe@example.com"
+
+# Add user to specified groups
+ForEach ($Group in $Groups) {
+    Add-ADGroupMember -Identity $Group -Members $UserName
+}
+        </code></pre>
+    </div>
+
+    <!-- Python Code Snippet -->
+    <div class="snippet">
+        <h3>Python: Sending Automated Alerts via SendGrid</h3>
+        <p>This Python script sends an automated email alert using the SendGrid API, a solution that I integrated into Azure automation scripts to replace SMTP alerts.</p>
+        <pre><code class="language-python">
+import os
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
+
+def send_alert_email(recipient, subject, content):
+    message = Mail(
+        from_email='admin@example.com',
+        to_emails=recipient,
+        subject=subject,
+        html_content=f"<strong>{content}</strong>"
+    )
+    try:
+        sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
+        response = sg.send(message)
+        print(f"Email sent to {recipient} with status code {response.status_code}")
+    except Exception as e:
+        print(f"Error sending email: {e}")
+
+# Usage
+send_alert_email('johndoe@example.com', 'Server Alert', 'CPU usage has exceeded the threshold.')
+        </code></pre>
+    </div>
+</section>
+
     
-    <section id="personal-info">
-        <h2>Personal Information</h2>
-        <p><strong>Name:</strong> Shubham Soni</p>
-        <p><strong>Email:</strong> shubham.soni@example.com</p>
-        <p><strong>Phone:</strong> +91-XXXXXXXXXX</p>
-        <p><strong>Location:</strong> India</p>
-    </section>
-    
-    <section id="education">
+<section id="education">
         <h2>Education</h2>
         <div class="collapsible">
             <h3 onclick="toggleSection(this)">Graduation - Uttar Pradesh Technical University (2018)</h3>
@@ -51,72 +183,6 @@
             </div>
         </div>
     </section>
-
-    <section id="experience">
-    <h2>Work Experience</h2>
-
-    <div class="collapsible">
-        <h3 onclick="toggleSection(this)">Nagarro Software Pvt Ltd | Associate Staff Engineer | Gurgaon | Mar '22 – Current</h3>
-        <div class="content">
-            <p>Fast-tracked promotion in 8 months vs. the standard 12 months. Multiple Achievers Award. Led a team of 5 members.</p>
-            <p><strong>Technologies:</strong> PowerShell, SharePoint, vSphere, HP iLO, Workday, Orchestrator, DNS, DHCP, JWT, OAuth 2.0, REST.</p>
-            <h4>Service Enhancements:</h4>
-            <ul>
-                <li>Enhanced security and scalability by upgrading the authentication protocol from JWT to OAuth 2.0.</li>
-                <li>Optimized performance and scalability by seamlessly migrating the SAS server from on-prem to the cloud.</li>
-                <li>Delivered substantial cost savings through strategic license reclamation and optimization.</li>
-                <li>Streamlined workflows and boosted scalability by migrating and optimizing on-prem scripts to Azure.</li>
-            </ul>
-            <h4>Solutions Provided:</h4>
-            <ul>
-                <li>Automated Adobe service deployment for AD users, minimizing manual effort and speeding up access.</li>
-                <li>Integrated SendGrid into Azure automation scripts, replacing SMTP for delivering timely alerts.</li>
-                <li>Streamlined CMDB updates by automating cross-platform change detection for improved accuracy.</li>
-            </ul>
-            <h4>Additional Responsibilities:</h4>
-            <ul>
-                <li>Managing Workday and Active Directory integration for efficient user provisioning and management.</li>
-                <li>Managing Azure IAM to control user access and ensure compliance across cloud environments.</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="collapsible">
-        <h3 onclick="toggleSection(this)">HCL Technologies | Technology Specialist | Noida | Jun '21 – Feb '22</h3>
-        <div class="content">
-            <p><strong>Technologies:</strong> vSphere, Citrix, Python, Selenium, HP ILO, CA PAM, NetBackup, Dell EMC.</p>
-            <h4>Services Offered:</h4>
-            <ul>
-                <li>Introduced and implemented a privileged account management plan to strengthen security measures.</li>
-                <li>Assisted in updating and migrating LUNs and data stores to improve performance and efficiency.</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="collapsible">
-        <h3 onclick="toggleSection(this)">Infosys Pvt Ltd | Senior Systems Engineer | Hyderabad | Jan '19 – May '21</h3>
-        <div class="content">
-            <p><strong>Technologies:</strong> vSphere, Horizon, AD, DHCP, DNS, SQL, PowerCLI, Service Now, Citrix Xen Apps and Xen Desktop.</p>
-            <h4>Contributions Made:</h4>
-            <ul>
-                <li>Developed a basic solution to verify patches deployed, saving time during maintenance windows.</li>
-                <li>Created a script to validate VM state and IP configuration against the CMDB, ensuring greater accuracy.</li>
-                <li>Scripted and deployed server monitoring during the project's initial phase to provide timely alerts.</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="collapsible">
-        <h3 onclick="toggleSection(this)">Cavisson Software Pvt Ltd | Project Management | Noida | Jun '18 – Jan '19</h3>
-        <div class="content">
-            <h4>Projects Undertaken:</h4>
-            <ul>
-                <li>Replaced Bugzilla and transitioned the team to Jira for better issue tracking and project management.</li>
-                <li>Collaborated with the team and leads to reduce backlogs and improve workflow efficiency effectively.</li>
-            </ul>
-        </div>
-    </div>
-</section>
 
     
     <section id="certifications">
