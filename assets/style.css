@@ -52,3 +52,34 @@ button {
     border-radius: 5px;
     cursor: pointer;
 }
+
+.experience-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+    background-color: #f8f9fa;
+}
+
+.experience-table th, .experience-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+}
+
+.experience-table th {
+    background-color: #007bff;
+    color: white;
+}
+
+.experience-table td ul {
+    padding-left: 20px;
+}
+
+.experience-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.experience-table tr:hover {
+    background-color: #ddd;
+}
