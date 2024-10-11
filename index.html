@@ -1,162 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shubham Soni's Resume</title>
+    <meta name="description" content="Shubham Soni's Professional Resume">
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
+    <title>Shubham Soni's Resume</title>
 </head>
 <body>
     <header>
         <h1>Shubham Soni</h1>
-        <div class="contact-info">
-            <p>Contacts: +91-9540018311 | Email: <a href="mailto:shubhamsoni.io1994@gmail.com">shubhamsoni.io1994@gmail.com</a></p>
-            <p>Position: Associate Staff Engineer | Hybrid Infrastructure Engineer | Nagarro | Ex HCLits | Ex Infosian | Smart India Hackathon</p>
-        </div>
-        <nav id="navbar">
-            <ul>
-                <li><a href="#experience">Work Experience</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-            </ul>
-        </nav>
+        <p>+91-9540018311 | shubhamsoni.io1994@gmail.com</p>
+        <p>Associate Staff Engineer | Hybrid Infrastructure Engineer | Nagarro | Ex HCLits | Ex Infosian | Smart India Hackathon</p>
     </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+        </ul>
+    </nav>
 
     <main>
         <section id="experience">
             <h2>Work Experience</h2>
-            <div class="experience-table">
-                <div class="experience-row" id="nagarro">
+            <div class="experience-container">
+                <div class="experience-card">
                     <h3>Nagarro Software Pvt Ltd</h3>
-                    <div class="info">
-                        <p class="position">Associate Staff Engineer</p>
-                        <p class="location">Gurgaon</p>
-                        <p class="duration">Mar '22 – Present</p>
-                        <div class="details">
-                            <p><strong>Technologies:</strong> PowerShell, SharePoint, vSphere, HP iLO, Workday, Orchestrator, DNS, DHCP, JWT, OAuth 2.0, REST</p>
-                            <p><strong>Contributions:</strong></p>
-                            <ul>
-                                <li>Fast-tracked promotion in 8 months vs. 12 months.</li>
-                                <li>Enhanced security and scalability by upgrading JWT to OAuth 2.0.</li>
-                                <li>Optimized performance by migrating SAS server from on-prem to cloud.</li>
-                                <li>Automated Adobe service deployment for AD users.</li>
-                                <li>Integrated SendGrid into Azure automation scripts, replacing SMTP alerts.</li>
-                                <li>Streamlined CMDB updates by automating cross-platform change detection.</li>
-                            </ul>
-                        </div>
-                    </div>
+                    <p class="location">Gurgaon</p>
+                    <p class="duration">Mar ’22 – Current</p>
+                    <p class="details">Fast track promotion in 8 vs 12 months, Multiple Achievers award. Led a team of 5 members.</p>
+                    <img src="nagarro.jpg" alt="Nagarro" />
                 </div>
-                <div class="experience-row" id="hcl">
+                <div class="experience-card">
                     <h3>HCL Technologies</h3>
-                    <div class="info">
-                        <p class="position">Technology Specialist</p>
-                        <p class="location">Noida</p>
-                        <p class="duration">Jun '21 – Feb '22</p>
-                        <div class="details">
-                            <p><strong>Technologies:</strong> vSphere, Citrix, Python, Selenium, HP ILO, CA PAM, NetBackup, Dell EMC</p>
-                            <p><strong>Contributions:</strong></p>
-                            <ul>
-                                <li>Introduced and implemented a privileged account management plan.</li>
-                                <li>Assisted in updating and migrating LUNs and data stores.</li>
-                            </ul>
-                        </div>
-                    </div>
+                    <p class="location">Noida</p>
+                    <p class="duration">Jun '21 – Feb '22</p>
+                    <p class="details">Technologies: vSphere, Citrix, Python, Selenium, HP iLO.</p>
+                    <img src="hcl.jpg" alt="HCL" />
                 </div>
-                <div class="experience-row" id="infosys">
+                <div class="experience-card">
                     <h3>Infosys Pvt Ltd</h3>
-                    <div class="info">
-                        <p class="position">Senior Systems Engineer</p>
-                        <p class="location">Hyderabad</p>
-                        <p class="duration">Jan '19 – May '21</p>
-                        <div class="details">
-                            <p><strong>Technologies:</strong> vSphere, Horizon, AD, DHCP, DNS, SQL, PowerCLI, ServiceNow, Citrix Xen Apps</p>
-                            <p><strong>Contributions:</strong></p>
-                            <ul>
-                                <li>Developed a solution to verify deployed patches.</li>
-                                <li>Created a script to validate VM state and IP configuration against the CMDB.</li>
-                                <li>Scripted and deployed server monitoring for timely alerts.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="experience-row" id="cavisson">
-                    <h3>Cavisson Software Pvt Ltd</h3>
-                    <div class="info">
-                        <p class="position">Project Management</p>
-                        <p class="location">Noida</p>
-                        <p class="duration">Jun '18 – Jan '19</p>
-                        <div class="details">
-                            <p><strong>Projects Undertaken:</strong></p>
-                            <ul>
-                                <li>Replaced Bugzilla with Jira for better issue tracking.</li>
-                                <li>Collaborated with the team to reduce backlogs.</li>
-                            </ul>
-                        </div>
-                    </div>
+                    <p class="location">Hyderabad</p>
+                    <p class="duration">Jan '19 – May '21</p>
+                    <p class="details">Technologies: vSphere, Horizon, AD, SQL.</p>
+                    <img src="infosys.jpg" alt="Infosys" />
                 </div>
             </div>
         </section>
 
         <section id="education">
             <h2>Education</h2>
-            <ul>
-                <li>Graduation in Computer Science and Engineering - Uttar Pradesh Technical University, First Division (2018)</li>
-                <li>Senior Secondary School - Ramjas (CBSE), First Division (2014)</li>
-            </ul>
+            <p>Graduation in Computer Science and Engineering</p>
+            <img src="education.jpg" alt="Education" />
         </section>
 
         <section id="projects">
             <h2>Projects</h2>
-            <ul>
-                <li>**Network Sniffing and Monitoring** - Smart India Hackathon 2017 (National Level), Network Packet Capturing Tool.</li>
-                <!-- Add more projects here -->
-            </ul>
+            <p>Details about your projects.</p>
+            <img src="projects.jpg" alt="Projects" />
         </section>
 
         <section id="skills">
             <h2>Skills</h2>
-            <ul>
-                <li>PowerShell</li>
-                <li>Python</li>
-                <li>SQL</li>
-                <!-- Add more skills here -->
-            </ul>
+            <p>Details about your skills.</p>
+            <img src="skills.jpg" alt="Skills" />
         </section>
 
         <section id="certifications">
             <h2>Certifications</h2>
-            <ul>
-                <li>DevOps (Nagarro)</li>
-                <li>Python (HackerRank)</li>
-                <li>Network Sniffing and Monitoring (IIT Kanpur)</li>
-                <li>Windows Server Administration (Infosys)</li>
-                <li>PowerShell Scripting (Infosys)</li>
-                <li>Cloud Data Science with Azure ML (Udemy)</li>
-            </ul>
-        </section>
-
-        <section id="demonstrations">
-            <h2>Demonstrations</h2>
-            <h3>Python Example</h3>
-            <pre>
-<code>
-def greet(name):
-    return f"Hello, {name}! Welcome to my resume page."
-
-print(greet("Shubham"))
-</code>
-            </pre>
-            <h3>PowerShell Example</h3>
-            <pre>
-<code>
-$services = Get-Service
-$services | Where-Object {$_.Status -eq 'Running'} | Select-Object Name, DisplayName
-</code>
-            </pre>
+            <p>Details about your certifications.</p>
+            <img src="certifications.jpg" alt="Certifications" />
         </section>
     </main>
 
